@@ -16,6 +16,10 @@ RUN cd /usr/testim/extension \
 COPY wrap_chrome_binary /opt/bin/wrap_chrome_binary
 RUN /opt/bin/wrap_chrome_binary
 
+ENV CACHE=/tmp/testimcache/
+ENV EXTENSION=/usr/testim/extension/
+ENV TESTIM_CMD="testim --file-cache-location ${CACHE} --use-chrome-launcher --lightweight-mode --ext ${EXTENSION}"
+
 VOLUME /tmp/testimcache/
 
 WORKDIR /usr/testim
